@@ -1,0 +1,13 @@
+C:\Users\zombi\adventofcode\day 1\DayOne\DayOne\bin\Debug\netcoreapp3.1\DayOne.exe
+C:\Users\zombi\adventofcode\day 1\DayOne\DayOne\bin\Debug\netcoreapp3.1\DayOne.deps.json
+C:\Users\zombi\adventofcode\day 1\DayOne\DayOne\bin\Debug\netcoreapp3.1\DayOne.runtimeconfig.json
+C:\Users\zombi\adventofcode\day 1\DayOne\DayOne\bin\Debug\netcoreapp3.1\DayOne.runtimeconfig.dev.json
+C:\Users\zombi\adventofcode\day 1\DayOne\DayOne\bin\Debug\netcoreapp3.1\DayOne.dll
+C:\Users\zombi\adventofcode\day 1\DayOne\DayOne\bin\Debug\netcoreapp3.1\DayOne.pdb
+C:\Users\zombi\adventofcode\day 1\DayOne\DayOne\obj\Debug\netcoreapp3.1\DayOne.csproj.AssemblyReference.cache
+C:\Users\zombi\adventofcode\day 1\DayOne\DayOne\obj\Debug\netcoreapp3.1\DayOne.AssemblyInfoInputs.cache
+C:\Users\zombi\adventofcode\day 1\DayOne\DayOne\obj\Debug\netcoreapp3.1\DayOne.AssemblyInfo.cs
+C:\Users\zombi\adventofcode\day 1\DayOne\DayOne\obj\Debug\netcoreapp3.1\DayOne.csproj.CoreCompileInputs.cache
+C:\Users\zombi\adventofcode\day 1\DayOne\DayOne\obj\Debug\netcoreapp3.1\DayOne.dll
+C:\Users\zombi\adventofcode\day 1\DayOne\DayOne\obj\Debug\netcoreapp3.1\DayOne.pdb
+C:\Users\zombi\adventofcode\day 1\DayOne\DayOne\obj\Debug\netcoreapp3.1\DayOne.genruntimeconfig.cache
