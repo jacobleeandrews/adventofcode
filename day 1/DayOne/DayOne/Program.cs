@@ -1,13 +1,20 @@
 ﻿
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
 namespace DayOne
 {
+
+
     class Program
     {
+        const int DESIRED_OUTCOME = 2020;
+        static System.Random rnd = new System.Random();
+        static System.Random rnd2 = new System.Random();
+
         static void Main(string[] args)
         {
-            const int DESIRED_OUTCOME = 2020;
-            System.Random rnd = new System.Random();
-
             var intList = new System.Collections.Generic.List<int>();
             using (var myFile = new System.IO.StreamReader("puzzleInput.txt"))
             {
@@ -24,6 +31,86 @@ namespace DayOne
 
             //sorts list ascending
             intList.Sort();
+
+            PartOne(intList);
+
+            PartTwo(intList);
+            
+        }
+
+        static void PartTwo(System.Collections.Generic.List<int> intList)
+        {
+
+            var selectedCombination = new Dictionary<int, Dictionary<int, int>>();
+
+            var firstNumber = 0;
+            var secondNumber = 0;
+            var thirdNumber = 0;
+
+            try
+            {
+                while (firstNumber + secondNumber + thirdNumber != DESIRED_OUTCOME)
+                {
+                    //generate initial seed of the run
+                    var firstRandomNumber = intList[rnd.Next(0, intList.Count)];
+                    var secondRandomNumber = intList[rnd.Next(0, intList.Count)];
+                    var thirdRandomNumber = intList[rnd.Next(0, intList.Count)];
+
+                    while(selectedCombination.ContainsKey(firstRandomNumber) &&
+                          selectedCombination[firstRandomNumber].ContainsKey(secondRandomNumber) &&
+                          selectedCombination[firstRandomNumber][secondRandomNumber] == thirdRandomNumber)
+                    {
+                        //if we have guessed this combination before, reroll
+                        firstRandomNumber = intList[rnd.Next(0, intList.Count)];
+                        secondRandomNumber = intList[rnd.Next(0, intList.Count)];
+                        thirdRandomNumber = intList[rnd.Next(0, intList.Count)];
+                    }
+
+                    //index the combination and guess it
+                    if (selectedCombination.ContainsKey(firstRandomNumber))
+                    {
+                        
+                        if (selectedCombination[firstRandomNumber].ContainsKey(secondRandomNumber))
+                        {
+                           
+                            selectedCombination[firstRandomNumber][secondRandomNumber] = thirdRandomNumber;
+
+                            firstNumber = firstRandomNumber;
+                            secondNumber = secondRandomNumber;
+                            thirdNumber = thirdRandomNumber;
+                        }
+                        else
+                        {
+                            selectedCombination[firstRandomNumber].Add(secondRandomNumber, thirdRandomNumber);
+
+                            firstNumber = firstRandomNumber;
+                            secondNumber = secondRandomNumber;
+                            thirdNumber = thirdRandomNumber;
+                        }
+                    }
+                    else
+                    {
+                        selectedCombination.Add(firstRandomNumber, new Dictionary<int, int>());
+                        selectedCombination[firstRandomNumber].Add(secondRandomNumber, thirdRandomNumber);
+
+                        firstNumber = firstRandomNumber;
+                        secondNumber = secondRandomNumber;
+                        thirdNumber = thirdRandomNumber;
+                    }
+                    
+
+                }
+
+            }
+            catch
+            {
+                throw;
+            }
+            if (firstNumber + secondNumber + thirdNumber == DESIRED_OUTCOME) System.Console.WriteLine($@"The answer is {firstNumber * secondNumber * thirdNumber}");
+        }
+
+        static void PartOne(System.Collections.Generic.List<int> intList)
+        {
 
             var selectedIndices = new System.Collections.Generic.List<int>();
 
@@ -56,7 +143,7 @@ namespace DayOne
                         secondNumber = intList[addIndex];
                         addIndex += 1;
                     }
-                    
+
                 }
             }
             catch
